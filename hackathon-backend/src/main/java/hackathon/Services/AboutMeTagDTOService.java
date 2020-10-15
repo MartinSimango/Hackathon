@@ -1,22 +1,24 @@
-package hackathon.controller;
+package hackathon.Services;
 
 
 import hackathon.client.MWLClient;
 import hackathon.client.request.AboutMeTagsDTO;
 import io.micronaut.http.MediaType;
-import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 
+import javax.inject.Singleton;
 import javax.inject.Inject;
 import java.util.List;
 
 
-@Controller("/hello")
-public class AboutMeTagDTOController {
+@Singleton
+public class AboutMeTagDTOService
+{
     @Inject
     private MWLClient mwlClient;
-    @Get(produces = MediaType.APPLICATION_JSON)
-    public List<AboutMeTagsDTO> getAllEmployeeAboutMeTagsDTO() {
+
+    public List<AboutMeTagsDTO> getAllEmployeeAboutMeTagsDTO()
+    {
         return mwlClient.getAllEmployeeAboutMeTagsDTO();
     }
 }
