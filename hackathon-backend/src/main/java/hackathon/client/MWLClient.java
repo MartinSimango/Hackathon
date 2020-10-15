@@ -19,13 +19,13 @@ import static io.micronaut.http.HttpHeaders.*;
 @Singleton
 public class MWLClient {
     @Inject
-    @Client("http://localhost:8080/app/rest/api/")
+    @Client("https://bsg-staging.com/app/rest/api/")
     RxHttpClient mwlHttpClient;
     public List<AboutMeTagsDTO> getAllEmployeeAboutMeTagsDTO(){
 
         HttpResponse<List<AboutMeTagsDTO>> response = mwlHttpClient.exchange(HttpRequest.GET("/employee/tagsaboutme")
                 .header(CONTENT_TYPE, MediaType.APPLICATION_JSON)
-                .header(AUTHORIZATION, "Basic c29tZXVzZXJuYW1lOnNvbWVwYXNzd29yZA==" )
+                .header(AUTHORIZATION, "Basic YnNnOnRlc3Q=" )
                 .header(ACCEPT, "application/vnd.myworklife-v1+json"), Argument.listOf(AboutMeTagsDTO.class)).blockingFirst();
 
         List<AboutMeTagsDTO> dtos = response.body();
