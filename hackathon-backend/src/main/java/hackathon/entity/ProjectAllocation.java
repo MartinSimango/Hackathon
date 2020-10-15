@@ -14,6 +14,30 @@ public class ProjectAllocation {
     private Long id = 0L;
 
 
+    public String getProjectCode() {
+        return projectCode;
+    }
+
+    public void setProjectCode(String projectCode) {
+        this.projectCode = projectCode;
+    }
+
+    public String getClientInput() {
+        return clientInput;
+    }
+
+    public void setClientInput(String clientInput) {
+        this.clientInput = clientInput;
+    }
+
+    public Long getTeamSize() {
+        return teamSize;
+    }
+
+    public void setTeamSize(Long teamSize) {
+        this.teamSize = teamSize;
+    }
+
     //todo: Martin review lazy fetch type
     @OneToMany (mappedBy ="projectAllocation", fetch = FetchType.LAZY)
     private List<Employee> employee = new ArrayList<>();

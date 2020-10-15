@@ -1,11 +1,9 @@
 package hackathon.Services;
 
 
+import hackathon.Repository.EmployeeRepository;
 import hackathon.client.MWLClient;
 import hackathon.client.request.AboutMeTagsDTO;
-import io.micronaut.http.MediaType;
-import io.micronaut.http.annotation.Get;
-
 import javax.inject.Singleton;
 import javax.inject.Inject;
 import java.util.List;
@@ -19,9 +17,10 @@ public class AboutMeTagDTOService
 
     public List<AboutMeTagsDTO> getAllEmployeeAboutMeTagsDTO()
     {
-        return mwlClient.getAllEmployeeAboutMeTagsDTO();
+        EmployeeRepository employeeRepository = new EmployeeRepository();
+        List<AboutMeTagsDTO> list = mwlClient.getAllEmployeeAboutMeTagsDTO();
+        employeeRepository.Save(list);
+
+        return list;
     }
-
-    //Save,Update,
-
 }

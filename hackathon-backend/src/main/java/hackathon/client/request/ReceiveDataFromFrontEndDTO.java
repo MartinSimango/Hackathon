@@ -8,12 +8,12 @@ import java.util.List;
 @Introspected
 public class ReceiveDataFromFrontEndDTO  {
 
-    private int number ;
+    private long number ;
     private String description;
     private String projectCode;
 
     public ReceiveDataFromFrontEndDTO(){}
-    public ReceiveDataFromFrontEndDTO (int number, String description,String projectCode){
+    public ReceiveDataFromFrontEndDTO (long number, String description,String projectCode){
         this.number = number;this.description=description;this.projectCode=projectCode;}
 
     public String getprojectCode() {
@@ -33,13 +33,14 @@ public class ReceiveDataFromFrontEndDTO  {
         this.description = description;
     }
 
-    public int getnumber() {
+    public long getnumber() {
         return number;
     }
 
     public void setnumber(int number) {
         this.number = number;
     }
+
     public String toString(){
         return "Number" + "=" + " "+number + " " +"Descrption"+ "="+ " "+ description + " " +"ProjectCode"+ "="+ " "+ projectCode;
     }
