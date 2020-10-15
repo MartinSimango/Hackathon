@@ -1,13 +1,10 @@
 micronaut:
   application:
     name: hackathon
-  server:
-    port: 7000
-
 #database configuration
 datasources:
   default:
-    url: ${HACKATHON_JDBC_URL:`jdbc:h2:mem;MODE=mysql;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE`}
+    url: ${HACKATHON_JDBC_URL:`jdbc:h2:./data/db;MODE=mysql;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE`}
     username: ${HACKATHON_JDBC_USER:sa}
     password: ${HACKATHON_JDBC_PASSWORD:""}
     driverClassName: ${HACKATHON_JDBC_DRIVER:org.h2.Driver}

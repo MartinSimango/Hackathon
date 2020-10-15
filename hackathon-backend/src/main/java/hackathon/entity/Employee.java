@@ -22,10 +22,5 @@ public class Employee {
     @Column(name = "tags", nullable = true)
     private String tags;
 
-    //todo: Martin review lazy fetch type
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_allocation_id")
-    private ProjectAllocation projectAllocation;
-
 
 }

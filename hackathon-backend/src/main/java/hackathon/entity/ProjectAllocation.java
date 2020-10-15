@@ -13,23 +13,13 @@ public class ProjectAllocation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id = 0L;
 
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
 
-    //todo: Martin review lazy fetch type
-    @OneToMany (mappedBy ="projectAllocation", fetch = FetchType.LAZY)
-    private List<Employee> employee = new ArrayList<>();
-
-    @NotNull
-    @Column(name = "project_code", nullable = false)
-    private String projectCode;
-
-    @NotNull
-    @Column(name = "client_input", nullable = false)
-    private String clientInput;
-
-    @NotNull
-    @Column(name = "team_size", nullable = false)
-    private Long teamSize;
-
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 
 
 }

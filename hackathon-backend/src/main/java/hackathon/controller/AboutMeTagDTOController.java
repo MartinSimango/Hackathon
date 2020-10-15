@@ -19,4 +19,9 @@ public class AboutMeTagDTOController {
     public List<AboutMeTagsDTO> getAllEmployeeAboutMeTagsDTO() {
         return mwlClient.getAllEmployeeAboutMeTagsDTO();
     }
+
+    @Get("/world")
+    public String test() {
+        return "Hello World!";
+    }
 }
