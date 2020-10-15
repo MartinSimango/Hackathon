@@ -2,13 +2,24 @@ micronaut:
   application:
     name: hackathon
   server:
-
     port: 7000
 
+#database configuration
 datasources:
   default:
-    url: ${JDBC_URL:`jdbc:h2:mem:flywayDb;MODE=mysql;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE`}
-    username: ${JDBC_USER:sa}
-    password: ${JDBC_PASSWORD:""}
-    driverClassName: ${JDBC_DRIVER:org.h2.Driver}
+    url: ${HACKATHON_JDBC_URL:`jdbc:h2:mem;MODE=mysql;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE`}
+    username: ${HACKATHON_JDBC_USER:sa}
+    password: ${HACKATHON_JDBC_PASSWORD:""}
+    driverClassName: ${HACKATHON_JDBC_DRIVER:org.h2.Driver}
 
+#hibernate
+jpa:
+  default:
+    packages-to-scan:
+      - 'hackathon.entity'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+        dialect: ${HIBERNATE_DIALECT:`org.hibernate.dialect.H2Dialect`}
