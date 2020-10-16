@@ -2,7 +2,6 @@ package hackathon.client.request;
 
 import io.micronaut.core.annotation.Introspected;
 
-import java.io.Serializable;
 import java.util.List;
 
 @Introspected
@@ -30,6 +29,15 @@ public class AboutMeTagsDTO  {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "AboutMeTagsDTO{" +
+                "name='" + name + '\'' +
+                ", aboutMe='" + aboutMe + '\'' +
+                ", tags=" + tags +
+                '}';
     }
 
     public void setName(String name) {

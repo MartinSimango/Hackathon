@@ -8,6 +8,8 @@ datasources:
     username: ${HACKATHON_JDBC_USER:sa}
     password: ${HACKATHON_JDBC_PASSWORD:""}
     driverClassName: ${HACKATHON_JDBC_DRIVER:org.h2.Driver}
+    maximum-pool-size: 8
+
 
 #hibernate
 jpa:
@@ -20,3 +22,4 @@ jpa:
           auto: update
         show_sql: true
         dialect: ${HIBERNATE_DIALECT:`org.hibernate.dialect.H2Dialect`}
+

@@ -14,6 +14,16 @@ public class Employee {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @NotNull
+    @Column(name = "about_me", nullable = false)
+    private String aboutMe;
+
+    @NotNull
+    @Column(name = "tags", nullable = true)
+    private String tags;
+
+//    public Employee(){}
+
     public String getName() {
         return name;
     }
@@ -38,13 +48,6 @@ public class Employee {
         this.tags = tags;
     }
 
-    @NotNull
-    @Column(name = "about_me", nullable = false)
-    private String aboutMe;
-
-    @NotNull
-    @Column(name = "tags", nullable = true)
-    private String tags;
 
 
 }
