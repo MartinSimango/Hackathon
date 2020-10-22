@@ -1,0 +1,25 @@
+micronaut:
+  application:
+    name: hackathonBackendKotlin
+
+datasources:
+  default:
+    url: ${HACKATHON_JDBC_URL:`jdbc:h2:./data/db;MODE=mysql;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE`}
+    username: ${HACKATHON_JDBC_USER:sa}
+    password: ${HACKATHON_JDBC_PASSWORD:""}
+    driverClassName: ${HACKATHON_JDBC_DRIVER:org.h2.Driver}
+    maximum-pool-size: 8
+
+
+#hibernate
+jpa:
+  default:
+    packages-to-scan:
+      - 'hackathon.backend.kotlin.entity'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+        dialect: ${HIBERNATE_DIALECT:`org.hibernate.dialect.H2Dialect`}
+
